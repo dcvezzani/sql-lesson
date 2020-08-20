@@ -13,18 +13,18 @@ psql
 
 Perhaps the most popular use of a database (even more than for learning SQL!) is to provide data storage for an application.  That being the case, ou will likely want to create a new Postgres user account to be associated with a given application.  In this way, you can limit what the user can do with the database.
 
-Since this is a "learning" walk through, we will give this new user access to... well, everything with `grant all privileges`, but we will only do so for the scope of the `myDatabase_admin` database.  As you can create multiple databases for a given Postgres installation, this will prevent `myDatabase_admin` from touching databases that are not his.
+Since this is a "learning" walk through, we will give this new user access to... well, everything with `grant all privileges`, but we will only do so for the scope of the `my_database_admin` database.  As you can create multiple databases for a given Postgres installation, this will prevent `my_database_admin` from touching databases that are not his.
 
 #### Create new database and user
 ```
-create database myDatabase;
-create user myDatabase_admin with encrypted password 'mypass';
-grant all privileges on database myDatabase to myDatabase_admin;
+create database my_database;
+create user my_database_admin with encrypted password 'mypass';
+grant all privileges on database my_database to my_database_admin;
 ```
 
 Log in through terminal, connecting to the database just created, using the user that was also just created
 ```
-psql --username myDatabase_admin -h localhost myDatabase --port 5432 --password
+psql --username my_database_admin -h localhost my_database --port 5432 --password
 ```
 
 Postgres can be a little cryptic on commands that are not SQL.  This one can be used to show what tables are currently available in your database.
